@@ -7,7 +7,8 @@
   --color-10: #D3D3D3;
   --color-white: #FFFF;
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  --shadow-button:  rgba(0, 0, 0, 0.44) 0px 3px 8px;;
+  --shadow-button: rgba(0, 0, 0, 0.44) 0px 3px 8px;
+  ;
 }
 
 html {
@@ -72,4 +73,14 @@ label,
 textarea {
   font-size: 1.8rem;
   font-weight: 500;
+}
+
+.toast-custom {
+  background-color: rgb(28, 206, 28);
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+.toast-progress {
+  background-color: var(--color-60)
 }
