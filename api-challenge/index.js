@@ -5,8 +5,6 @@ const router = require("./routes/router");
 require("dotenv").config({path:".env"});
 const dbConnection = require("./config/bdConnection");
 
-
-
 /**
  * Application initialization.
  */
