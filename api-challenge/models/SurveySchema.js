@@ -12,10 +12,11 @@ const SurveySchema = mongoose.Schema({
         trim:true,
     },
     created:{
-        type: Date.now(),
+        type: Date,
+        default: Date.now(),
         required:true
     }
 },{
     versionKey: false
 })
-module.exports = mongoose.model("Survery",SurveySchema);
+module.exports = mongoose.model("Survey",SurveySchema);
