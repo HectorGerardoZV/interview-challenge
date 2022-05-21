@@ -1,0 +1,68 @@
+.loginForm {
+    width: 40rem;
+}
+
+.loginForm fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.loginForm__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.loginForm__img img {
+    width: 15rem;
+}
+
+.loginForm__input {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 90%;
+}
+
+.loginForm__input input {
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: var(--color-30);
+    outline: none;
+    font-weight: 600;
+}
+
+.loginForm__input input::placeholder {
+    color: var(--color-30);
+}
+
+.loginForm__input label {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.loginForm__submit {
+    width: 90%;
+    margin-top: 5rem;
+}
+
+.loginForm__submit input {
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: var(--color-30-hover);
+    color: var(--color-white);
+    text-align: center;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.loginForm__submit input:hover {
+    box-shadow: var(--shadow);
+}

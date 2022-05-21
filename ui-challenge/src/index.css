@@ -6,9 +6,10 @@
   --color-30: #469BB1;
   --color-10: #D3D3D3;
   --color-white: #FFFF;
+  --color-30-hover: #1887A4;
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --shadow-button: rgba(0, 0, 0, 0.44) 0px 3px 8px;
-  ;
+  
 }
 
 html {

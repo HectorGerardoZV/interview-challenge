@@ -1,0 +1,61 @@
+.loginPage {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    position: relative;
+    overflow: hidden;
+}
+
+.loginPage__left {
+    padding: 5rem;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    animation: loginImage;
+    animation-duration: .5s;
+}
+
+.loginPage__left h1 {
+    text-align: center;
+    color: var(--color-30);
+    font-weight: 500;
+}
+
+.loginPage__left img {
+    width: 60rem;
+
+}
+
+.loginPage_right {
+    position: absolute;
+    right: 0;
+    background-color: var(--color-30);
+    height: 100vh;
+    padding: 3rem;
+    border-bottom-left-radius: 4rem;
+    border-top-left-radius: 4rem;
+    animation: loginFormAnimation;
+    animation-duration: .5s;
+}
+
+@keyframes loginFormAnimation {
+    0% {
+        margin-right: -40rem;
+    }
+
+    100% {
+        margin-right: 0rem;
+    }
+}
+
+@keyframes loginImage {
+    0% {
+        opacity: 0;
+    }
+
+
+    100% {
+        opacity: 1;
+    }
+}
