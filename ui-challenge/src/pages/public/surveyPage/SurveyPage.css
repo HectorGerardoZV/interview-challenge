@@ -1,0 +1,17 @@
+.surveyPage__header{
+    background-color: var(--color-30);
+    text-align: center;
+    padding: 3rem;
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+}
+.surveyPage__header h1{
+    color: var(--color-white);
+}
+
+.surveyPage__mainContent{
+    margin-top: 4rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
