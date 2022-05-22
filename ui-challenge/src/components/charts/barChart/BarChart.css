@@ -5,4 +5,7 @@
     padding: 2rem;
     margin: 0 auto;
     text-align: center;
+    animation: chartAnimation;
+    animation-duration: .5s;
 }
+

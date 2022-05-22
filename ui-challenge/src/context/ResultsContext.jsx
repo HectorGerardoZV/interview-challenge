@@ -6,14 +6,23 @@ const ResultsContext = createContext();
 
 const ResultsProvider = ({ children }) => {
 
-    const [results, setResults] = useState([]);
+    const [results, setResults] = useState(
+        localStorage.getItem("results") ?
+            JSON.parse(localStorage.getItem("results")) :
+            []
+    );
     const queryAllResults = async () => {
         try {
             const response = await axiosClient.get("/survey");
             const { data } = response;
             setResults(data);
+            localStorage.setItem("results", JSON.stringify(data))
         } catch (error) {
-            setResults([])
+            setResults(
+                localStorage.getItem("results") ?
+                    JSON.parse(localStorage.getItem("results")) :
+                    []
+            )
         }
     }
 

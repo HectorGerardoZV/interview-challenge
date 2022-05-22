@@ -8,6 +8,8 @@
     flex-direction: column;
     padding: 2rem;
     justify-content: space-evenly;
+    animation: sideBarAnimation;
+    animation-duration: .5s;
 }
 
 .sideBar__head {
@@ -46,4 +48,13 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+@keyframes sideBarAnimation {
+    0%{
+        margin-left: -40rem;
+    }
+    100%{
+        margin-left: 0rem;
+    }
 }

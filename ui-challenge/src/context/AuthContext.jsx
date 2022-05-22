@@ -50,7 +50,6 @@ const AuthProvider = ({ children }) => {
                 }
                 const response = await axiosClient.get("/auth", config)
                 const { data } = response;
-                console.log(data);
                 return true;
             } catch (error) {
                 console.log(error.response.data);

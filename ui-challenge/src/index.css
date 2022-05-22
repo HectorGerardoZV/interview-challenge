@@ -95,3 +95,15 @@ textarea {
 .toast-progress {
   background-color: var(--color-60)
 }
+
+@keyframes chartAnimation {
+  0%{
+      transform: scale(0);
+  }
+  50%{
+      transform: scale(1.1);
+  }
+  100%{
+      transform: scale(1);
+  }
+}
