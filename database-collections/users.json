@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "62896a6a998847056b51298d"
+  },
+  "username": "hectorZapata",
+  "password": "$2a$10$0HmcM/JcGPI8MLC1ArQBT.Hq/bGuOQonTfy1m3TOBTr2iQlPEe57O",
+  "created": {
+    "$date": {
+      "$numberLong": "1653172840215"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62896aa6998847056b51298f"
+  },
+  "username": "cesar",
+  "password": "$2a$10$1iJHtIUbJrx2GKGnzMmp3uWKq58BAwjkwJS.RfaZVy1Zt5HQXX2Fy",
+  "created": {
+    "$date": {
+      "$numberLong": "1653172840215"
+    }
+  }
+}]
