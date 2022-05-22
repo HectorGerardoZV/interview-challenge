@@ -12,7 +12,7 @@ const SurveyProvider = ({ children }) => {
     );
     const submitSurvey = async () => {
         try {
-            const response = await axioClient.post("", survey);
+            const response = await axioClient.post("/survey", survey);
             const { data } = response;
             return data;
         } catch (error) {

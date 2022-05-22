@@ -12,8 +12,6 @@ const authenticate = async(req,res)=>{
         if(!await user.comparePassword(password)){
             return res.status(404).json({msg: "Invalid credentials"});
         }
-
-        
         const token = jwt.sign(
         {username: user.username},
         process.env.SECRET_KEY,

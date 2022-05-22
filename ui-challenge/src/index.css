@@ -81,7 +81,11 @@ textarea {
   color: var(--color-white);
   font-size: 1.5rem;
 }
-
+.toast-custom-bad{
+  background-color: rgb(255, 50, 50);
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
 .toast-progress {
   background-color: var(--color-60)
 }
