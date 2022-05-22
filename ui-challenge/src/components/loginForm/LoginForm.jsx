@@ -23,11 +23,13 @@ const LoginForm = () => {
             navigate("/admin")
         }
     }
-    const checkSubmission = (e) => {
-        handleOnSubmitCredentials(e)
-        setTimeout(() => {
-            goToAdmin();
-        }, 2500);
+    const checkSubmission = async (e) => {
+        const valid = await handleOnSubmitCredentials(e)
+        if (valid) {
+            setTimeout(() => {
+                goToAdmin();
+            }, 2500);
+        }
     }
 
 

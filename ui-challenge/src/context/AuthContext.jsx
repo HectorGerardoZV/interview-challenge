@@ -35,21 +35,23 @@ const AuthProvider = ({ children }) => {
                 username: credentials.username
             }))
             showToast("Great!!!", "good")
+            return true;
         } catch (error) {
             const { data } = error.response
             showToast(data.msg, "bad")
+            return false;
         }
     }
-    const queryValidateToken = async(tokenAccess)=>{
-        if(tokenAccess){
+    const queryValidateToken = async (tokenAccess) => {
+        if (tokenAccess) {
             try {
                 const config = {
-                    headers:{
+                    headers: {
                         authorization: `Bearer ${tokenAccess}`
                     }
                 }
                 const response = await axiosClient.get("/auth", config)
-                const {data} = response;
+                const { data } = response;
                 console.log(data);
                 return true;
             } catch (error) {
@@ -66,7 +68,7 @@ const AuthProvider = ({ children }) => {
     }
     const handleOnSubmitCredentials = async (e) => {
         e.preventDefault();
-        await queryApiAuth()
+        return await queryApiAuth()
     }
     const showToast = (msg, type) => {
         toast.success(`${msg}`, {

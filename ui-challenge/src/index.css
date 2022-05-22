@@ -9,7 +9,7 @@
   --color-30-hover: #1887A4;
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --shadow-button: rgba(0, 0, 0, 0.44) 0px 3px 8px;
-  
+
 }
 
 html {
@@ -66,6 +66,10 @@ h3 {
   font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+}
+
 p,
 a,
 input,
@@ -81,11 +85,13 @@ textarea {
   color: var(--color-white);
   font-size: 1.5rem;
 }
-.toast-custom-bad{
+
+.toast-custom-bad {
   background-color: rgb(255, 50, 50);
   color: var(--color-white);
   font-size: 1.5rem;
 }
+
 .toast-progress {
   background-color: var(--color-60)
 }

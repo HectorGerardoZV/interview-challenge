@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 //Providers
 import { SurveyProvider } from "../context/SurveyContext.jsx"
 import { AuthProvider } from "../context/AuthContext"
+import { ResultsProvider } from "../context/ResultsContext"
 
 
 //Pages
@@ -21,9 +22,11 @@ const AppRouter = () => {
           </Routes>
         </SurveyProvider>
 
-        <Routes>
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
+        <ResultsProvider>
+          <Routes>
+            <Route path="/admin" element={<AdminPage />} />
+          </Routes>
+        </ResultsProvider>
       </AuthProvider>
     </Router>
   )
