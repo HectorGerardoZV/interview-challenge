@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 //Hooks
 import useAuth from "../../hooks/useAuth"
@@ -7,14 +7,19 @@ import useAuth from "../../hooks/useAuth"
 import LogOut from "../../img/btn-logout.svg"
 import "./SideBar.css"
 const SiderBar = () => {
-    const { user } = useAuth()
+    let navigate = useNavigate();
+    const { user, resetAuth } = useAuth()
 
+    const handleOnClickLogOut = () => {
+        resetAuth();
+        navigate("/login")
+    }
 
     return (
         <section className="sideBar">
             <div className="sideBar__head">
                 <h1>Welcome</h1>
-                <h3>{user.username}</h3>
+                <h3>{user?.username}</h3>
             </div>
             <div className="sideBar__menu">
                 <Link to={"/admin"}>Home</Link>
@@ -26,7 +31,7 @@ const SiderBar = () => {
             </div>
 
             <div className="sideBar__logout">
-                <button>
+                <button onClick={handleOnClickLogOut}>
                     <img src={LogOut} alt="log out" />
                 </button>
             </div>

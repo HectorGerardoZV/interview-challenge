@@ -1,8 +1,6 @@
 import { createContext, useState } from "react"
 import axiosClient from "../config/axiosClient"
 import { toast } from "react-toastify"
-import { useNavigate } from "react-router-dom";
-
 
 const AuthContext = createContext();
 
@@ -70,6 +68,15 @@ const AuthProvider = ({ children }) => {
         e.preventDefault();
         return await queryApiAuth()
     }
+    const resetAuth = () => {
+        setToken(null);
+        setUser(null);
+        setCredentials({ username: "", password: "" })
+        localStorage.setItem("token", null)
+        localStorage.setItem("user", null)
+        localStorage.setItem("credentials", JSON.stringify({ username: "", password: "" }))
+    }
+
     const showToast = (msg, type) => {
         toast.success(`${msg}`, {
             className: `${type === "bad" ? "toast-custom-bad" : "toast-custom"}`,
@@ -88,7 +95,8 @@ const AuthProvider = ({ children }) => {
                 queryApiAuth,
                 queryValidateToken,
                 handleOnChangeCredentials,
-                handleOnSubmitCredentials
+                handleOnSubmitCredentials,
+                resetAuth
             }}
         >
             {children}

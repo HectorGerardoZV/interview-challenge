@@ -24,7 +24,8 @@ const ResultsProvider = ({ children }) => {
     return (
         <ResultsContext.Provider
             value={{
-                results
+                results,
+                queryAllResults
             }}
         >
             {children}
