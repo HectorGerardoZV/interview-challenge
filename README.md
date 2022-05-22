@@ -32,7 +32,7 @@ mongodb
  - open the project ***'ui-challenge'*** and run the command ***'npm i'*** to download the dependencies, then run the command ***'npm run dev'*** to start the project.
 
 ## Credentials
-In the collections users the passwords are hashed in this case let me show your what are the complete credentials.
+In the collection of users the passwords are hashed in this case let me show you how the credentials would look like completely
 #### First User
 - username: "hectorZapata",
 - password: "challenge"
