@@ -11,13 +11,13 @@ import "./LoginForm.css"
 const LoginForm = () => {
     let navigate = useNavigate()
     const {
-        token,
         credentials,
         handleOnChangeCredentials,
         handleOnSubmitCredentials,
         queryValidateToken
     } = useAuth()
     const goToAdmin = async () => {
+        const token = JSON.parse(localStorage.getItem("token"))
         const goodToken = await queryValidateToken(token);
         if (goodToken) {
             navigate("/admin")
