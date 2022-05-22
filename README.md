@@ -44,5 +44,5 @@ In the collection of users the passwords are hashed in this case let me show you
 ```sh
 '/' in this path is the form to answer the survey
 '/login' in this path is the login form
-'/admin' in this path you will find the administration area, where you can see the graphs of the surveys results.
+'/admin' in this path you will find the administration area, where you can see the charts of the surveys results.
 ```
