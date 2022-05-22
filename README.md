@@ -31,6 +31,8 @@ mongodb
  - open the ***'api-challenge'*** project and run the ***'npm i'*** command to download the dependencies, then run the ***'npm run dev'*** command to start the project.
  - open the project ***'ui-challenge'*** and run the command ***'npm i'*** to download the dependencies, then run the command ***'npm run dev'*** to start the project.
 
+## Credentials
+In the collections users the passwords are hashed in this case let me show your what are the complete credentials.
 #### First User
 - username: "hectorZapata",
 - password: "challenge"
