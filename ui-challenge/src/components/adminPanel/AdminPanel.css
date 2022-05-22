@@ -1,4 +1,10 @@
 .adminPanel {
     grid-column-start: 2;
     grid-column-end: 3;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    overflow-y: scroll;
+    height: 90vh;
 }

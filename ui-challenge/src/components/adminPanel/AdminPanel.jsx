@@ -1,10 +1,14 @@
 
-
-
+import BarChart from "../charts/barChart/BarChart"
+import PieChart from "../charts/pieChart/PieChart"
 import "./AdminPanel.css"
 const AdminPanel = () => {
+
   return (
-    <section className="adminPanel">AdminPanel</section>
+    <section className="adminPanel">
+      <BarChart />
+      <PieChart />
+    </section>
   )
 }
 
