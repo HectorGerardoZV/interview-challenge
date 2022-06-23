@@ -1,11 +1,11 @@
-const UserSchema = require("../models/UserSchema");
+const UserModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
 const authenticate = async(req,res)=>{
     try {
         const {body} = req;
         const {username, password} = body;
-        const user = await UserSchema.findOne({username});
+        const user = await UserModel.findOne({username});
         if(!user){
             return res.status(404).json({msg: "Invalid credentials"});
         }
@@ -40,8 +40,20 @@ const checkAuh = (req,res)=>{
 }
 
 
+// const addNewUser = async(req,res)=>{
+//     try {
+//         const user = new UserModel(req.body);
+//         await user.save({msg: "User created"});
+//         res.status(200).json();
+//     } catch (error) {
+//         res.status(500).json({error: "Error while creating user"});
+//     }
+// }
+
+
 
 module.exports = {
     authenticate,
-    checkAuh
+    checkAuh,
+    // addNewUser
 }

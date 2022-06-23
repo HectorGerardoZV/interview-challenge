@@ -1,9 +1,9 @@
-const SurveySchema = require("../models/SurveySchema");
+const SurveyModel = require("../models/survey.model");
 
 const addNewSurvey = async(req,res)=>{
     try {
         const {body} = req;
-        const survey = new SurveySchema(body);
+        const survey = new SurveyModel(body);
         const newSurvey = await survey.save();
         if(!newSurvey){
             return res.status(400).json({msg: "Error when adding new survey"});
@@ -16,7 +16,7 @@ const addNewSurvey = async(req,res)=>{
 
 const getAllSurveys = async(req,res)=>{
     try {
-        const surveys = await SurveySchema.find({});
+        const surveys = await SurveyModel.find({});
         res.status(200).json(surveys);
     } catch (error) {
         res.status(500).json({msg: "Error when consulting surveys"});

@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const router = require("./routes/router");
+const router = require("./routes/router.router");
 require("dotenv").config({path:".env"});
 const dbConnection = require("./config/bdConnection");
 
