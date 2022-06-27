@@ -1,5 +1,14 @@
-import AppRouter from "./router/AppRouter"
+import AppRouter from "./router/AppRouter";
+
+//context
+import { WalletProvider } from "./context/WalletContext";
+
 function App() {
-  return <AppRouter />
+  return (
+    <WalletProvider>
+      <AppRouter />
+    </WalletProvider>
+  )
+
 }
 export default App

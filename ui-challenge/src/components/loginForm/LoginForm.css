@@ -64,5 +64,7 @@
 }
 
 .loginForm__submit input:hover {
-    box-shadow: var(--shadow);
+    background-color: var(--color-30-hover);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-button);
 }
