@@ -10,6 +10,7 @@ import { ResultsProvider } from "../context/ResultsContext"
 import SurveyPage from "../pages/public/surveyPage/SurveyPage"
 import LoginPage from "../pages/public/loginPage/LoginPage.jsx"
 import AdminPage from "../pages/private/adminPage/AdminPage";
+import AdminPanel from "../components/adminPanel/AdminPanel.jsx"
 
 const AppRouter = () => {
   return (
@@ -24,7 +25,9 @@ const AppRouter = () => {
 
         <ResultsProvider>
           <Routes>
-            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin" element={<AdminPage />}>
+              <Route index element={<AdminPanel/>} />
+            </Route>
           </Routes>
         </ResultsProvider>
       </AuthProvider>

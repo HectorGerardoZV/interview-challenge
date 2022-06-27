@@ -1,12 +1,12 @@
 import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Outlet } from "react-router-dom"
+
 
 //Hooks
 import useAuth from "../../../hooks/useAuth"
 
 //Components
 import SiderBar from "../../../components/sideBar/SiderBar"
-import AdminPanel from "../../../components/adminPanel/AdminPanel"
 
 import "./AdminPage.css"
 const AdminPage = () => {
@@ -27,7 +27,7 @@ const AdminPage = () => {
     return (
         <section className="adminPage">
             <SiderBar />
-            <AdminPanel />
+            <Outlet/>
         </section>
     )
 }

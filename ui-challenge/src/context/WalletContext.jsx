@@ -1,17 +1,15 @@
 import { createContext, useEffect, useState } from "react"
 const WalletContext = createContext();
 /**
- * Methods
- * 
+ * ---->Methods<----
  * registerUser (uint level)
  * addHealthData (bytes32 data)
  * getHealthData ()
- * 
  */
 
 import { ethers } from "ethers"
 const { ethereum } = window;
-import {contractABI,contractAddress} from "../utilities/constants"
+import { contractABI, contractAddress } from "../utilities/constants"
 const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
@@ -23,7 +21,7 @@ const WalletProvider = ({ children }) => {
     const [wallet, setWallet] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
     const [connecting, setConnecting] = useState(false);
-
+    const [blockchainResults, setBlockchainResults] = useState([]);
 
     const isConnectedWallet = () => {
         try {
@@ -37,7 +35,7 @@ const WalletProvider = ({ children }) => {
             setIsConnected(false);
         }
     }
-    const connectWallet = async () => {     
+    const connectWallet = async () => {
         try {
             setConnecting(true);
             const wallets = await ethereum.request({ method: "eth_requestAccounts" });
@@ -45,7 +43,7 @@ const WalletProvider = ({ children }) => {
             setWallet(walletSelected);
             isConnectedWallet();
             setConnecting(false);
-            registerUserBlockchain(walletSelected); 
+            registerUserBlockchain(walletSelected);
         } catch (error) {
             setWallet(null);
             setConnecting(false);
@@ -63,18 +61,33 @@ const WalletProvider = ({ children }) => {
         try {
             const contract = getEthereumContract();
             const values = Object.values(data);
-            let info = values[0]+","+values[1];
+            let info = values[0] + "," + values[1];
             info = ethers.utils.formatBytes32String(info);
             const result = await contract.addHealthData(info);
             console.log(result);
 
         } catch (error) {
-            
+            console.log(error);
+        }
+    }
+    const getHealthDataBlockchain = async () => {
+        try {
+            const contract = getEthereumContract();
+            const results = await contract.getHealthData();
+            const elements = [];
+            for (let i = 0; i < results.length; i += 2) {
+                const element = ethers.utils.toUtf8String(results[i]);
+                elements.push(element)
+            }
+            setBlockchainResults(elements);
+        } catch (error) {
+            setBlockchainResults([]);
         }
     }
 
     useEffect(() => {
         isConnectedWallet();
+        getHealthDataBlockchain();
     }, [wallet]);
 
 
@@ -84,9 +97,11 @@ const WalletProvider = ({ children }) => {
                 wallet,
                 isConnected,
                 connecting,
+                blockchainResults,
                 connectWallet,
                 isConnectedWallet,
-                addSurveyBlockchain
+                addSurveyBlockchain,
+                getHealthDataBlockchain
             }}
         >
             {children}

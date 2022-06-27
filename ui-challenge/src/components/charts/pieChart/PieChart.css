@@ -1,5 +1,5 @@
 .pieChart {
-    width: 60rem;
+    width: 70rem;
     border-radius: 2rem;
     box-shadow: var(--shadow);
     padding: 2rem;
@@ -7,4 +7,7 @@
     text-align: center;
     animation: chartAnimation;
     animation-duration: .5s;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
