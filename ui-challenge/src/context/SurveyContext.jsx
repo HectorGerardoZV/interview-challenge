@@ -1,10 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
+import WalletContext from "./WalletContext";
 import axioClient from "../config/axiosClient"
 import { toast } from "react-toastify"
 const SurveyContext = createContext();
 
 const SurveyProvider = ({ children }) => {
-
+    const {addSurveyBlockchain} = useContext(WalletContext);
     const [survey, setSurvey] = useState(
         localStorage.getItem("survey") ?
             JSON.parse(localStorage.getItem("survey")) :
@@ -12,11 +13,13 @@ const SurveyProvider = ({ children }) => {
     );
     const submitSurvey = async () => {
         try {
+            addSurveyBlockchain(survey)
             const response = await axioClient.post("/survey", survey);
             const { data } = response;
+            addSurveyBlockchain(survey)
             return data;
         } catch (error) {
-            log
+            console.log(error);
         }
     }
     const hanelOnChangeSurvey = (e) => {

@@ -12,7 +12,6 @@ contract BowheadDevChallenge {
   function registerUser(uint level) external {
     require(level > 0, 'The level must be greater than 0');
     UserLevel[msg.sender] = level;
-
     emit UserRegistered(msg.sender, level);
   }
 
