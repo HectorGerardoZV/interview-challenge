@@ -81,6 +81,7 @@ const WalletProvider = ({ children }) => {
             }
             setBlockchainResults(elements);
         } catch (error) {
+            console.log(error);
             setBlockchainResults([]);
         }
     }
