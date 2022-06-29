@@ -16,7 +16,8 @@ const SurveyProvider = ({ children }) => {
             addSurveyBlockchain(survey);
             const response = await axioClient.post("/survey", survey);
             const { data } = response;
-            await addSurveyBlockchain(survey);
+            const success = await addSurveyBlockchain(survey);
+            console.log(success);
             return data;
         } catch (error) {
             console.log(error);

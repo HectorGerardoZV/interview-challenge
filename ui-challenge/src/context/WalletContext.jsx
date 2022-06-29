@@ -1,26 +1,17 @@
 import { createContext, useEffect, useState } from "react"
 const WalletContext = createContext();
+import {
+    registerUserBlockchain,
+    addSurveyBlockchain,
+    getHealthDataBlockchain
+} from "./helpers/WalletHelpers"
 /**
  * ---->Methods<----
  * registerUser (uint level)
  * addHealthData (bytes32 data)
  * getHealthData ()
  */
-
-import { ethers } from "ethers"
 const { ethereum } = window;
-import { contractABI, contractAddress } from "../utilities/constants"
-const getEthereumContract = () => {
-    try {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        console.log(provider);
-        const signer = provider.getSigner();
-        const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
-        return transactionContract;
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 const WalletProvider = ({ children }) => {
     const [wallet, setWallet] = useState(null);
@@ -48,55 +39,23 @@ const WalletProvider = ({ children }) => {
             setWallet(walletSelected);
             isConnectedWallet();
             setConnecting(false);
-            registerUserBlockchain(walletSelected);
+            registerUserBlockchain();
         } catch (error) {
             setWallet(null);
             setConnecting(false);
         }
     }
-    const registerUserBlockchain = async (user) => {
+    const handleQueryDataBlockchain = async () => {
         try {
-            const contract = getEthereumContract();
-            const response = await contract.registerUser(1);
-            const info = await response.wait();
-            console.log(info);
+            const result = await getHealthDataBlockchain();
+            setBlockchainResults(result);
         } catch (error) {
-            console.log("Here error");
-            console.log(error);
-        }
-    }
-    const addSurveyBlockchain = async (data) => {
-        try {
-            const contract = getEthereumContract();
-            const values = Object.values(data);
-            let info = values[0] + "," + values[1];
-            info = ethers.utils.formatBytes32String(info);
-            const result = await contract.addHealthData(info);
-            const sucess = await result.wait();
-            console.log(sucess);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    const getHealthDataBlockchain = async () => {
-        try {
-            const contract = getEthereumContract();
-            const results = await contract.getHealthData();
-            const elements = [];
-            for (let i = 0; i < results.length; i += 2) {
-                const element = ethers.utils.toUtf8String(results[i]);
-                elements.push(element)
-            }
-            setBlockchainResults(elements);
-        } catch (error) {
-            console.log(error);
-            setBlockchainResults([]);
-        }
-    }
 
+        }
+    }
     useEffect(() => {
         isConnectedWallet();
-        getHealthDataBlockchain();
+        handleQueryDataBlockchain();
     }, [wallet]);
 
 

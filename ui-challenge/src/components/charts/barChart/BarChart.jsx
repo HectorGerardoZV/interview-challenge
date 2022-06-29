@@ -46,7 +46,7 @@ const BarChart = () => {
     const oneBlock = columOne.filter(item => item == "one").length;
     const twoBlock = columOne.filter(item => item == "two").length;
     const threeBlock = columOne.filter(item => item == "three").length;
-
+    
     const dataAPI = {
         labels,
         datasets: [
