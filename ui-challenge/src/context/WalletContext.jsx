@@ -11,10 +11,15 @@ import { ethers } from "ethers"
 const { ethereum } = window;
 import { contractABI, contractAddress } from "../utilities/constants"
 const getEthereumContract = () => {
-    const provider = new ethers.providers.Web3Provider(ethereum);
-    const signer = provider.getSigner();
-    const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
-    return transactionContract;
+    try {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        console.log(provider);
+        const signer = provider.getSigner();
+        const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
+        return transactionContract;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const WalletProvider = ({ children }) => {
@@ -52,8 +57,11 @@ const WalletProvider = ({ children }) => {
     const registerUserBlockchain = async (user) => {
         try {
             const contract = getEthereumContract();
-            await contract.registerUser(1);
+            const response = await contract.registerUser(1);
+            const info = await response.wait();
+            console.log(info);
         } catch (error) {
+            console.log("Here error");
             console.log(error);
         }
     }
@@ -64,8 +72,8 @@ const WalletProvider = ({ children }) => {
             let info = values[0] + "," + values[1];
             info = ethers.utils.formatBytes32String(info);
             const result = await contract.addHealthData(info);
-            console.log(result);
-
+            const sucess = await result.wait();
+            console.log(sucess);
         } catch (error) {
             console.log(error);
         }
